@@ -1,0 +1,67 @@
+/* Navbar shadow + smooth look */
+.navbar {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 0.7rem 1.5rem;
+
+
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+/* Nav links hover effect */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+   color: #28a745; 
+  
+}
+
+/* Underline animation */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Search input rounded */
+form input.form-control {
+  border-radius: 25px;
+  padding-left: 15px;
+}
+
+/* Buttons styling */
+.btn {
+  border-radius: 25px;
+  padding: 6px 16px;
+  transition: all 0.3s ease;
+}
+
+/* Button hover animation */
+.btn-outline-success:hover,
+.btn-success:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+
+
+
+
+
