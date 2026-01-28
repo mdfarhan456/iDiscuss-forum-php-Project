@@ -11,12 +11,13 @@
   </head>
   <body>
   <?php include 'components/signupModal.php' ?> 
+  <?php include 'components/loginModal.php' ?> 
   
    <?php include 'components/navbar.php' ?>
     <div class="pt-4 mx-1 me-1">
         <?php include 'components/crowsel.php' ?>
     </div>
-  <?php include 'components/loginModal.php' ?> 
+  
     
    <div class="container pt-4 ">
    
