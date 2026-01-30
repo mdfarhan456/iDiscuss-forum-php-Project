@@ -20,7 +20,13 @@
 
 }
 
-
+.lnk{
+  text-decoration:none;
+  color:black;
+}
+.lnk:hover{
+   text-decoration:underline;
+}
 </style>
 
   </head>
@@ -67,62 +73,33 @@
 
 <div class="container py-4 me-1">
     <h4>Browse Comments</h4>
+    <?php
+    $id = $_GET['catid'];
+    $sql = "SELECT * from `threads` WHERE `threads_cat_id` = $id";
+    $result = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_assoc($result))
+        {
+            $id = $row['threads_id']; 
+            $title = $row['threads_title']; 
+            $desc = $row['threads_desc']; 
+ echo '
 <div class="d-flex align-items-start py-3">
   <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
   
-  <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
-  </div>
-</div>
 
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
   <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
+    <h6 class="mb-1"><a href="/forumProject/components/thread.php" class="lnk">'.$title.'</a></h6>
+    <p class="mb-0 text-muted">'.$desc.'</p>
   </div>
-</div>
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
-  <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
-  </div>
-</div>
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
-  <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
-  </div>
-</div>
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
-  <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
-  </div>
-</div>
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
-  <div>
-    <h6 class="mb-1">John Doe</h6>
-    <p class="mb-0 text-muted">This is a comment or post content.</p>
-  </div>
-</div>
-</div>
+</div>';
+
+       }
+ ?>
+ </div>
+
+  <?php include 'footer.php' ?>
 
 
-
-
-
-   <?php include 'footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
