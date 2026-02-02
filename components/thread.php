@@ -37,24 +37,24 @@
 <?php include 'dbConnect.php' ?>
 
 <?php
-    $id = $_GET['catid'];
-    $sql = "SELECT * from `category` WHERE `category_id` = $id";
+    $id = $_GET['threadid'];
+    $sql = "SELECT * from `threads` WHERE `threads_id` = $id";
     $result = mysqli_query($con, $sql);
     while($row = mysqli_fetch_assoc($result))
         {
-            $catName = $row['category_name']; 
-            $catDesc = $row['category_description']; 
+            $title = $row['threads_title']; 
+            $desc = $row['threads_desc']; 
         }
  ?>
   <div class="container mt-5 pt-5 d-flex justify-content-center">
   <div class="forum-box bg-white rounded-4 px-4 py-5 text-center">
 
     <h2 class="fw-semibold mb-3">
-      Welcome to <?php echo $catName ?> Forums
+   <?php echo $title ?>
     </h2>
 
     <p class="text-muted mb-3">
-      <?php echo $catDesc ?>
+      <?php echo $desc ?>
     </p>
 
     <hr class="my-3">
@@ -64,40 +64,15 @@
       Respect all members and avoid posting offensive or copyrighted content.
     </p>
 
-    <a class="btn btn-primary btn-sm px-4 rounded-pill">
-      Learn More
-    </a>
+    <p><b>Posted by farhan</b></p>
 
   </div>
 </div>
 
+
 <div class="container py-4 me-1">
     <h4>Browse Comments</h4>
-    <?php
-    $id = $_GET['catid'];
-    $sql = "SELECT * from `threads` WHERE `threads_cat_id` = $id";
-    $result = mysqli_query($con, $sql);
-    while($row = mysqli_fetch_assoc($result))
-        {
-            $id = $row['threads_id']; 
-            $title = $row['threads_title']; 
-            $desc = $row['threads_desc']; 
- echo '
-<div class="d-flex align-items-start py-3">
-  <img src="https://cdn.vectorstock.com/i/500p/06/32/social-network-default-profile-picture-avatar-icon-vector-57120632.jpg" class="rounded me-3" width="54" alt="user">
-  
-
-  <div>
-    <h6 class="mb-1"><a href="/forumProject/components/thread.php?threadid='.$id.'" class="lnk" target="_blank"
-             rel="noopener noreferrer">'.$title.'</a></h6>
-    <p class="mb-0 text-muted">'.$desc.'</p>
-  </div>
-</div>';
-
-       }
- ?>
- </div>
-
+</div>
   <?php include 'footer.php' ?>
 
 
